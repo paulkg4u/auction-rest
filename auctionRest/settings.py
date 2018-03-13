@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auction.apps.AuctionConfig',
+	'rest_framework',
+	'auction'
 ]
 
 MIDDLEWARE = [
