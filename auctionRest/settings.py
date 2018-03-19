@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auction.apps.AuctionConfig',
 	'rest_framework',
-	'auction'
 ]
 
 MIDDLEWARE = [
