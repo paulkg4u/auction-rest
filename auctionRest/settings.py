@@ -30,7 +30,7 @@ SECRET_KEY = 'wv^ok&s==sflfz*(w***zbks)7pk!g&slciz-5+(y2(i$*u0ai'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['paulkottalil.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,11 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auction.apps.AuctionConfig',
 	'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -57,7 +59,50 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'auctionRest.urls'
+# Cross Origin Request related settings
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE'
+)
 
+CORS_ALLOW_HEADERS = (
+    'x-requested-with',
+    'content-type',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken','user-agent',
+    'accept-encoding',
+    'event',
+    'event-trail',
+    'country',
+    'lang',
+    'device-os',
+    'browser',
+    'session',
+)
+
+CORS_EXPOSE_HEADERS = (
+    'x-requested-with',
+    'content-type',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken',
+    'user-agent',
+    'accept-encoding',
+    'event',
+    'event-trail',
+    'country',
+    'lang',
+    'device-os',
+    'browser',
+    'session',
+)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
